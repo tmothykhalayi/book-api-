@@ -2,6 +2,7 @@ import { Controller, Get, Post, Put, Delete, Param, Body, UsePipes, ValidationPi
 import { BookService } from './book.service';
 import { CreateBookDto } from './dto/create-book.dto';
 import { UpdateBookDto } from './dto/update-book.dto';
+import { Book } from './entity/book.entity';
 
 @Controller('books')
 export class BookController {

@@ -1,6 +1,6 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToOne, JoinColumn } from 'typeorm';
-import { Profile } from '../../profile/entity/profile.entity'; 
-
+import { Entity, PrimaryGeneratedColumn, Column, OneToOne, JoinColumn, OneToMany } from 'typeorm';
+import { Profile } from '../../profile/entity/entity.profile'; 
+import { BookReview } from '../../book-review/entity/book-review.entity';
 
 @Entity()
 export class User {
@@ -28,4 +28,7 @@ export class User {
   @OneToOne(() => Profile, profile => profile.user)
   @JoinColumn()
   profile: Profile;
+  
+  @OneToMany(() => BookReview, review => review.user)
+  reviews: BookReview[];
 }
